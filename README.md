@@ -25,7 +25,9 @@ La complejidad sería **Tiempo: O(a * c) y Espacio O(a).** a siendo "amount" y c
 
 En este problema se pide determinar la manera mas económica de conectar dos ciudades con máximo K paradas. Es un problema de grafos donde encontrar el cámino mas bárato se puede resolver de muchas maneras. 
 Para resolverlo, use una versión modificadad de Bellman-Ford por ser mejor que un BFS simple y mas fácil de implementar para esta solución que Dijkstra's. Se usa una lista empezando con valores de infinito excepto por el inicio para tomar en cuenta la manera mas barata para alcanzar una ciudad en específico, y después se checa K+1 veces todas las conexiones de vuelos para ver si hay una mejor manera usando alguna otra ruta.
+
 `tempCost[flight[1]] = min( tempCost[flight[1]], minCost[ flight[0] ] + flight[2] )`
+
 Al final, si el destino sigue siendo infinito, no hay ruta válida y se retorna -1. Si hay algo se retorna el valor dado ya sabiendo que es la manera mas barata.
 
 La complejidad sería de **Espacio O(N) Tiempo O(K * E)** N siendo la cantidad de destinos, K siendo el número de paradas, y E siendo la cantidad de vuelos. 
